@@ -8,8 +8,8 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            xLoc:0,
-            yLoc:0,
+            xLoc:15,
+            yLoc:30,
             align: 'left',
             color: 'red'
         }
