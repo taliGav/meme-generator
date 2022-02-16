@@ -24,7 +24,7 @@
     <section class="gallery">
         <h2 class="gallery-title">Choose your meme-pic</h2>
         <section class="gallery-container grid">
-            <img class="img img1" id="1" src="./meme-imgs-square/1.jpg" onclick="onImgSelect(this.id)" alt="">
+            <!-- <img class="img img1" id="1" src="./meme-imgs-square/1.jpg" onclick="onImgSelect(this.id)" alt="">
             <img class="img img2" id="2" src="./meme-imgs-square/2.jpg" onclick="onImgSelect(this.id)" alt="">
             <img class="img img3" id="3" src="./meme-imgs-square/3.jpg" onclick="onImgSelect(this.id)" alt="">
             <img class="img img4" id="4" src="./meme-imgs-square/4.jpg" onclick="onImgSelect(this.id)" alt="">
@@ -32,15 +32,20 @@
             <img class="img img6" id="6" src="./meme-imgs-square/6.jpg" onclick="onImgSelect(this.id)" alt="">
             <img class="img img7" id="7" src="./meme-imgs-square/7.jpg" onclick="onImgSelect(this.id)" alt="">
             <img class="img img8" id="8" src="./meme-imgs-square/8.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img9" id="9" src="./meme-imgs-square/9.jpg" onclick="onImgSelect(this.id)" alt="">
+            <img class="img img9" id="9" src="./meme-imgs-square/9.jpg" onclick="onImgSelect(this.id)" alt=""> -->
         </section>
     </section>
 
-    <section>
+    <section class="editor-container">
+        <!-- <section class="editor-container" hidden> -->
         <h1>MEME GENERATOR</h1>
+        <div class="command-panel">
+            <p>Enter text to your meme</p><input type="text" class="new-line" placeholder="Enter your text here" onkeyup="setLineTxt(this)">
+            <p>Choose stroke color</p><input type="color" onchange="setStrokeColor(this)">
+            <p>Choose fill color</p><input type="color" onchange="setFillColor(this)">
+        </div>
 
         <div class="canvas-container">
-            <input type="text" class="new-line" placeholder="Enter your text here" onkeyup="setLineTxt(this)">
             <canvas id="meme-canvas" height="350" width="350" onclick="demo()"></canvas>
         </div>
 

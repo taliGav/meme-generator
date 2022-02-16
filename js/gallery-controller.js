@@ -1,8 +1,8 @@
- 'use strict' 
+'use strict';
 
- console.log('gallery controller');
+console.log('gallery controller');
 
- var gImgs = [{
+var gImgs = [{
     id: 1,
     url: './meme-imgs-square/1.jpg',
     keywords: ['funny', 'cat']
@@ -13,12 +13,39 @@
     keywords: ['funny', 'cat']
 }];
 
+function onInit() {
+    renderGallery();
+}
 
-function renderGallery(){
+function getImgs() {
+    return gImgs;
+}
 
+function renderGallery() {
+    const imgs = getImgs()
+    var strHtml = imgs.map(img => {
+        return `
+        <img class="img img${img.id}" id="${img.id}" src="${img.url}" onclick="onImgSelect(this.id)" alt="">`;
+    });
+
+    document.querySelector('.gallery-container').innerHTML = strHtml.join('');
 }
 
 function onImgSelect(id) {
-    setImg(id) ;
+    setImg(id);
+    openMemeEditor();
     renderMeme();
 }
+
+// function openMemeEditor() {
+//     const elEditorContainer = document.querySelector('.editor-container');
+//     elEditorContainer.style.top = y + 'px';
+//     elEditorContainer.style.left = x + 'px';
+//     // elCanContainer.innerText = msg;
+//     elEditorContainer.hidden = false;
+// }
+
+// function closeMemeEditor() {
+//     const elEditorContainer = document.querySelector('.editor-container');
+//     elEditorContainer.hidden = true;
+// }

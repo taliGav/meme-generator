@@ -11,7 +11,8 @@ var gMeme = {
             xLoc:15,
             yLoc:30,
             align: 'left',
-            color: 'red'
+            strokeColor: 'black',
+            fillColor: 'white'
         }
     ]
 };
