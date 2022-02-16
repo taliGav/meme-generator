@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,27 +8,43 @@
     <link rel="stylesheet" href="./css/styles.css">
     <title>The Generator</title>
 </head>
+
 <body onload="onInit()">
-<header>
-    <div class="logo">memeGenerator</div>
-    <nav class="main-nav-container">
-        <ul>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Saved</a></li>
-            <li><a href="#">Archive</a></li>
-        </ul>
-    </nav>
-</header>
-    
-    <!-- <h1>MEME GENERATOR</h1>
+    <header class="main-header main-layout">
+        <div class="logo">MemeGenerator</div>
+        <nav class="main-nav-container">
+            <ul>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Saved memes</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="canvas-container">
-        <canvas id="meme-canvas" height="500" width="500" onclick="demo()"></canvas>
-    </div> -->
+    <section class="gallery grid">
+        <img class="img img1" src="./meme-imgs (square)/1.jpg" alt="">
+        <img class="img img2" src="./meme-imgs (square)/2.jpg" alt="">
+        <img class="img img3" src="./meme-imgs (square)/3.jpg" alt="">
+        <img class="img img4" src="./meme-imgs (square)/4.jpg" alt="">
+        <img class="img img5" src="./meme-imgs (square)/5.jpg" alt="">
+        <img class="img img6" src="./meme-imgs (square)/6.jpg" alt="">
+        <img class="img img7" src="./meme-imgs (square)/7.jpg" alt="">
+        <img class="img img8" src="./meme-imgs (square)/8.jpg" alt="">
+        <img class="img img9" src="./meme-imgs (square)/9.jpg" alt="">
+    </section>
 
-    
+    <!-- <section>
+        <h1>MEME GENERATOR</h1>
 
-    <script src="./js/services/user-service.js"></script>
-    <script src="./js/user-controller.js"></script>
+        <div class="canvas-container">
+            <canvas id="meme-canvas" height="500" width="500" onclick="demo()"></canvas>
+        </div>
+
+    </section> -->
+
+
+    <script src="./js/services/meme-service.js"></script>
+    <script src="./js/meme-controller.js"></script>
 </body>
+
 </html>

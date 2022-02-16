@@ -1,7 +1,5 @@
 'use strict';
 
-// var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }];
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -16,6 +14,13 @@ var gMeme = {
 };
 
 
-function onInit() {
-    console.log('controller');
+function demo() {
+    console.log('service');
 }
+
+function getMeme() {
+    return gMeme;
+}
+
+
+function renderMeme(); 

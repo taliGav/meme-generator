@@ -1,0 +1,3 @@
+.gallery {
+    grid-template-columns: repeat(3,150px);
+}
