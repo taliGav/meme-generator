@@ -2,7 +2,7 @@
 console.log('meme editor service');
 
 var gMeme = {
-    selectedImgId: 5,
+    selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
         {
@@ -16,15 +16,9 @@ var gMeme = {
     ]
 };
 
-console.log(gMeme.lines[0].txt);
+console.log('meme line[0]',gMeme.lines[0].txt);
 
-function demo() {
-    console.log('service');
-}
 
 function getMeme() {
     return gMeme;
 }
-
-
-// function renderMeme(); 
