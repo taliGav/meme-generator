@@ -1,4 +1,5 @@
 'use strict';
+console.log('meme editor service');
 
 var gMeme = {
     selectedImgId: 5,
@@ -7,6 +8,8 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
+            xLoc:0,
+            yLoc:0,
             align: 'left',
             color: 'red'
         }
@@ -24,4 +27,4 @@ function getMeme() {
 }
 
 
-function renderMeme(); 
+// function renderMeme(); 
