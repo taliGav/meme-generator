@@ -5,11 +5,6 @@ console.log('meme editor controller');
 var gCanvas;
 var gCtx;
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
-var gImgs = [{
-    id: 1,
-    url: './meme-imgs-square/1.jpg',
-    keywords: ['funny', 'cat']
-}];
 
 
 function onInit() {
@@ -28,9 +23,9 @@ function renderMeme() {
     drawMeme(meme.selectedImgId);
 }
 
-function drawMeme() {
+function drawMeme(id) {
     var img = new Image();
-    img.src = gImgs[0].url;
+    img.src = gImgs[id-1].url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
         drawTextLine(gMeme.lines[0].txt, gMeme.lines[0].xLoc, gMeme.lines[0].yLoc, gMeme.lines[0].color);
@@ -49,11 +44,6 @@ function drawTextLine(text, x, y, fillColor) {
     gCtx.strokeText(text, x, y);
 }
 
-
-function setMemeImg(id) {
-    gMeme.selectedImgId = id;
-    console.log(gMeme);
-}
 
 
 function demo() {

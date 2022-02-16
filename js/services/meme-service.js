@@ -22,8 +22,13 @@ function getMeme() {
     return gMeme;
 }
 
+function setImg(id) { 
+gMeme.selectedImgId = id;
+console.log(gMeme);
+}
+
 function setLineTxt(el) {
-    console.log('el.value',el.value);
+    // console.log('el.value',el.value);
     gMeme.lines[0].txt = el.value;
     renderMeme();
 }
