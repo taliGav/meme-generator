@@ -65,10 +65,33 @@ function demo() {
     console.log('canvas on click demo');
 }
 
-
+function closeMemeEditor() {
+    const elEditorContainer = document.querySelector('.editor-container');
+    elEditorContainer.hidden = true;
+}
 
 // function downloadCanvas(elLink) {
 //     const data = gCanvas.toDataURL()
 //     elLink.href = data
 //     elLink.download = 'my-img.jpg'
 // }
+
+
+function updateFontSize(val) {
+    const meme = getMeme();
+    var currFontSize = meme.lines[0].size;
+
+    switch (val) {
+        case '+':
+            meme.lines[0].size = currFontSize + 1;
+            renderMeme();
+            break;
+        case '-':
+            meme.lines[0].size = currFontSize - 1;
+            renderMeme();
+            break;
+    }
+}
+
+function switchLines() {
+}

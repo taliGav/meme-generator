@@ -45,7 +45,3 @@ function onImgSelect(id) {
 //     elEditorContainer.hidden = false;
 // }
 
-// function closeMemeEditor() {
-//     const elEditorContainer = document.querySelector('.editor-container');
-//     elEditorContainer.hidden = true;
-// }
