@@ -18,7 +18,12 @@ var gMeme = {
 
 console.log('meme line[0]',gMeme.lines[0].txt);
 
-
 function getMeme() {
     return gMeme;
+}
+
+function setLineTxt(el) {
+    console.log('el.value',el.value);
+    gMeme.lines[0].txt = el.value;
+    renderMeme();
 }
