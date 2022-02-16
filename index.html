@@ -13,7 +13,7 @@
     <header class="main-header main-layout">
         <div class="logo">MemeGenerator</div>
         <nav class="main-nav-container">
-            <ul>
+            <ul class="clean-list">
                 <li><a href="#">Gallery</a></li>
                 <li><a href="#">Saved memes</a></li>
                 <li><a href="#">About</a></li>
@@ -21,30 +21,35 @@
         </nav>
     </header>
 
-    <section class="gallery grid">
-        <img class="img img1" src="./meme-imgs (square)/1.jpg" alt="">
-        <img class="img img2" src="./meme-imgs (square)/2.jpg" alt="">
-        <img class="img img3" src="./meme-imgs (square)/3.jpg" alt="">
-        <img class="img img4" src="./meme-imgs (square)/4.jpg" alt="">
-        <img class="img img5" src="./meme-imgs (square)/5.jpg" alt="">
-        <img class="img img6" src="./meme-imgs (square)/6.jpg" alt="">
-        <img class="img img7" src="./meme-imgs (square)/7.jpg" alt="">
-        <img class="img img8" src="./meme-imgs (square)/8.jpg" alt="">
-        <img class="img img9" src="./meme-imgs (square)/9.jpg" alt="">
+    <section class="gallery">
+        <h2 class="gallery-title">Choose your meme-pic</h2>
+    <section class="gallery-container grid">
+        <img class="img img1" src="./meme-imgs-square/1.jpg" alt="">
+        <img class="img img2" src="./meme-imgs-square/2.jpg" alt="">
+        <img class="img img3" src="./meme-imgs-square/3.jpg" alt="">
+        <img class="img img4" src="./meme-imgs-square/4.jpg" alt="">
+        <img class="img img5" src="./meme-imgs-square/5.jpg" alt="">
+        <img class="img img6" src="./meme-imgs-square/6.jpg" alt="">
+        <img class="img img7" src="./meme-imgs-square/7.jpg" alt="">
+        <img class="img img8" src="./meme-imgs-square/8.jpg" alt="">
+        <img class="img img9" src="./meme-imgs-square/9.jpg" alt="">
     </section>
+</section>
 
-    <!-- <section>
+    <section>
         <h1>MEME GENERATOR</h1>
 
         <div class="canvas-container">
-            <canvas id="meme-canvas" height="500" width="500" onclick="demo()"></canvas>
+            <canvas id="meme-canvas" height="350" width="350" onclick="demo()"></canvas>
         </div>
 
-    </section> -->
+    </section>
 
 
     <script src="./js/services/meme-service.js"></script>
+    <script src="./js/services/gallery-service.js"></script>
     <script src="./js/meme-controller.js"></script>
+    <script src="./js/gallery-controller.js"></script>
 </body>
 
 </html>

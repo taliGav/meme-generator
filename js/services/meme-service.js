@@ -13,6 +13,7 @@ var gMeme = {
     ]
 };
 
+console.log(gMeme.lines[0].txt);
 
 function demo() {
     console.log('service');
