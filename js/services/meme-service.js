@@ -6,8 +6,8 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'first',
-            size: 26,
+            txt: 'example1',
+            size: 30,
             xLoc: 20,
             yLoc: 40,
             align: 'left',
@@ -15,7 +15,7 @@ var gMeme = {
             fillColor: 'white'
         },
         {
-            txt: 'sec',
+            txt: 'example2',
             size: 22,
             xLoc: 40,
             yLoc: 300,
