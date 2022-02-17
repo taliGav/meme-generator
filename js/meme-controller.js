@@ -23,21 +23,25 @@ function drawMeme(id) {
     img.src = imgs[id - 1].url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
-        drawTextLine();
+        drawTextLines();
     };
 }
 
-function drawTextLine() {
+function drawTextLines() {
     const meme = getMeme();
-    const currLine = meme.selectedLineIdx;
+    meme.lines.forEach(line => drawTextLine(meme.lines.indexOf(line)));
+}
+
+function drawTextLine(currLine) {
+    const meme = getMeme();
     const text = meme.lines[currLine].txt;
     const x = meme.lines[currLine].xLoc;
     const y = meme.lines[currLine].yLoc;
-
-    gCtx.font = `${meme.lines[currLine].size}px luckiest-guy`;
+    
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = meme.lines[currLine].strokeColor;
     gCtx.fillStyle = meme.lines[currLine].fillColor;
+    gCtx.font = `${meme.lines[currLine].size}px luckiest-guy`;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }
@@ -85,7 +89,4 @@ function onUpdateFontSize(val) {
             renderMeme();
             break;
     }
-}
-
-function switchLines() {
 }

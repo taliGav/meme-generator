@@ -39,7 +39,7 @@
         <section class="editor-container" hidden>
         <h1>MEME GENERATOR</h1>
         <div class="command-panel">
-            <p>Enter text to your meme</p><input type="text" class="new-line" placeholder="Enter your text here" onkeyup="setLineTxt(this)">
+            <p>Enter text to your meme</p><input id="text-input" type="text" class="new-line" placeholder="Enter your text here" onkeyup="setLineTxt(this)">
             <p>Choose stroke color</p><input type="color" onchange="setStrokeColor(this)">
             <p>Choose fill color</p><input type="color" onchange="setFillColor(this)">
             <button class="btn increase-font" onclick="onUpdateFontSize('+')">+</button>

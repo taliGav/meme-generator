@@ -6,7 +6,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: '',
+            txt: 'first',
             size: 26,
             xLoc: 15,
             yLoc: 30,
@@ -15,7 +15,7 @@ var gMeme = {
             fillColor: 'white'
         },
         {
-            txt: 'NOT hungry',
+            txt: 'sec',
             size: 22,
             xLoc: 100,
             yLoc: 60,
@@ -45,6 +45,7 @@ function setSelectedLine() {
     if (newLine > gMeme.lines.length - 1) newLine = 0;
     gMeme.selectedLineIdx = newLine;
     console.log('updated line',gMeme.selectedLineIdx);
+    renderMeme();
 }
 
 
@@ -62,5 +63,18 @@ function openMemeEditor() {
 
     const elEditorContainer = document.querySelector('.editor-container');
     elEditorContainer.hidden = false;
+    
     renderMeme();
+    updateInputText();
 }
+
+function updateInputText() {
+    document.getElementById("text-input").value =  gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
+
+
+// gCtx.strokeText('Saving the context', 10, 50)
+//   gCtx.save()   
+
+// gCtx.restore()

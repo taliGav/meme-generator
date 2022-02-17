@@ -41,6 +41,7 @@ function switchLines() {
     console.log('switch lines func activated');
     setSelectedLine();
     console.log('meme line[meme.selectedLineIdx]',gMeme.lines[gMeme.selectedLineIdx].txt);
+    updateInputText();
 
     // openMemeEditor();
 }
