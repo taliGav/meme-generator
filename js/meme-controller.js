@@ -13,7 +13,6 @@ function renderMeme() {
     var meme = getMeme();
     // var img = getImgForDisp(meme.selectedImgId);
     drawMeme(meme.selectedImgId);
-
 }
 
 function drawMeme(id) {
@@ -90,3 +89,11 @@ function onUpdateFontSize(val) {
             break;
     }
 }
+
+function switchLines() {
+    console.log('switch lines func activated');
+    setSelectedLine();
+    // console.log('meme line[meme.selectedLineIdx]',gMeme.lines[gMeme.selectedLineIdx].txt);
+    updateInputText();
+}
+
