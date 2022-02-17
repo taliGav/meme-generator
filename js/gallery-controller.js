@@ -2,6 +2,7 @@
 
 console.log('gallery controller');
 
+// const IMGS_STORAGE_KEY = 'imgsDB';
 var gImgs = [{
     id: 1,
     url: './meme-imgs-square/1.jpg',
@@ -93,6 +94,29 @@ var gImgs = [{
     keywords: ['funny', 'puppy', 'dog', 'cute', 'love']
 }
 ];
+
+
+// function createImgs() {
+//     gImgs = loadFromStorage(IMGS_STORAGE_KEY);
+//     if (!gImgs || !gImgs.length) {
+//         gImgs = [
+//             _createImg()
+//         ];
+//         _saveImgsToStorage();
+//     }
+
+// }
+
+// function _saveImgsToStorage() {
+//     _saveImgsToStorage(IMGS_STORAGE_KEY, gImgs);
+// }
+
+// function _createImg() {
+//     id,
+//     url,
+//     keywords
+// }
+
 
 function onInit() {
     renderGallery();
