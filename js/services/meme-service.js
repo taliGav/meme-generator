@@ -7,7 +7,7 @@ var gMeme = {
     lines: [
         {
             txt: 'I sometimes eat Falafel',
-            size: 20,
+            size: 22,
             xLoc:15,
             yLoc:30,
             align: 'left',
@@ -32,4 +32,19 @@ function setLineTxt(el) {
     // console.log('el.value',el.value);
     gMeme.lines[0].txt = el.value;
     renderMeme();
+}
+
+
+function openMemeEditor() {
+    console.log('on open meme editor');
+    const elEditorContainer = document.querySelector('.editor-container');
+    gCanvas = document.getElementById('meme-canvas');
+    gCanvas.style.top = '350px';
+    gCanvas.style.left = '350px';
+
+    gCtx = gCanvas.getContext('2d');
+
+    elEditorContainer.hidden = false;
+    renderMeme();
+
 }

@@ -36,8 +36,8 @@
         </section>
     </section>
 
-    <section class="editor-container">
-        <!-- <section class="editor-container" hidden> -->
+    <!-- <section class="editor-container"> -->
+        <section class="editor-container" hidden>
         <h1>MEME GENERATOR</h1>
         <div class="command-panel">
             <p>Enter text to your meme</p><input type="text" class="new-line" placeholder="Enter your text here" onkeyup="setLineTxt(this)">
@@ -46,7 +46,7 @@
             <button class="btn increase-font" onclick="updateFontSize('+')">+</button>
             <button class="btn decrease-font" onclick="updateFontSize('-')">-</button>
             <button class="btn switch-lines" onclick="switchLines()">switch-lines</button>
-            <button class="btn download" onclick="downloadMeme(this)" download="">Download</button>
+            <a class="btn download" onclick="downloadMeme(this)" download="my-meme.jpg"><a href="#">Download</a>
         </div>
 
         <div class="canvas-container">

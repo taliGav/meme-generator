@@ -7,14 +7,6 @@ var gCtx;
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
 
 
-function openMemeEditor() {
-    console.log('on open meme editor');
-    gCanvas = document.getElementById('meme-canvas');
-    gCtx = gCanvas.getContext('2d');
-
-    renderMeme();
-
-}
 
 function renderMeme() {
     // renders an image on the canvas and a line of text on top
@@ -71,9 +63,8 @@ function closeMemeEditor() {
 }
 
 function downloadMeme(elLink) {
-    const data = gCanvas.toDataURL()
+    const data = gCanvas.toDataURL('image/jpeg')
     elLink.href = data
-    elLink.download = 'my-img.jpg'
 }
 
 

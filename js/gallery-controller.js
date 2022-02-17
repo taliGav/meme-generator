@@ -22,7 +22,7 @@ function getImgs() {
 }
 
 function renderGallery() {
-    const imgs = getImgs()
+    const imgs = getImgs();
     var strHtml = imgs.map(img => {
         return `
         <img class="img img${img.id}" id="${img.id}" src="${img.url}" onclick="onImgSelect(this.id)" alt="">`;
@@ -34,14 +34,5 @@ function renderGallery() {
 function onImgSelect(id) {
     setImg(id);
     openMemeEditor();
-    renderMeme();
 }
-
-// function openMemeEditor() {
-//     const elEditorContainer = document.querySelector('.editor-container');
-//     elEditorContainer.style.top = y + 'px';
-//     elEditorContainer.style.left = x + 'px';
-//     // elCanContainer.innerText = msg;
-//     elEditorContainer.hidden = false;
-// }
 
