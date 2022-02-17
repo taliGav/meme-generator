@@ -6,6 +6,7 @@ body {
     margin: 0;
     background-color: bisque;
     font-family: lobster;
+    font-size: 1.8em;
 }
 
 canvas {

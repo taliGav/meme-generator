@@ -32,22 +32,31 @@
     <section class="editor-container main-layout " hidden>
         <h1>MEME GENERATOR</h1>
         <section class="gen-container grid">
-        <!-- <section class="gen-container flex space-around wrap"> -->
+            <!-- <section class="gen-container flex space-around wrap"> -->
             <div class="command-panel">
-                <p>Enter text to your meme</p><input id="text-input" type="text" class="new-line"
-                    placeholder="Enter your text here" onkeyup="setLineTxt(this)">
-                <p>Choose stroke color</p><input type="color" onchange="setStrokeColor(this)">
-                <p>Choose fill color</p><input type="color" onchange="setFillColor(this)">
+                <!-- <p>Enter text to your meme</p><input id="text-input" type="text" class="new-line"
+                    placeholder="Enter your text here" onkeyup="setLineTxt(this)"> -->
+                <div>Enter text to your meme<input id="text-input" type="text" class="new-line"
+                        placeholder="Enter your text here" onkeyup="setLineTxt(this)"></div>
+                <div>Choose stroke color<input type="color" onchange="setStrokeColor(this)">
+                </div>
+                <div>Choose fill color<input type="color" onchange="setFillColor(this)">
+                </div>
                 <button class="btn increase-font" onclick="onUpdateFontSize('+')">+</button>
                 <button class="btn decrease-font" onclick="onUpdateFontSize('-')">-</button>
                 <button class="btn switch-lines" onclick="switchLines()">switch-lines</button>
                 <!-- <button class="btn switch-lines" onclick="switchLines()">switch-lines</button> -->
-                <br><a href="#" class="btn download" onclick="downloadMeme(this)" download="my-meme.jpg">Download your meme !</a>
+                <br>
             </div>
 
             <div class="canvas-container">
                 <!-- <canvas id="meme-canvas"></canvas> -->
                 <canvas id="meme-canvas" height="400" width="400" onclick="demo()"></canvas>
+            </div>
+
+            <div class="download">
+                <a href="#" class="btn download" onclick="downloadMeme(this)" download="my-meme.jpg">Download your
+                    meme !</a>
             </div>
         </section>
 
