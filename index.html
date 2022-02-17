@@ -36,21 +36,22 @@
         </section>
     </section>
 
-    <!-- <section class="editor-container"> -->
         <section class="editor-container" hidden>
         <h1>MEME GENERATOR</h1>
         <div class="command-panel">
             <p>Enter text to your meme</p><input type="text" class="new-line" placeholder="Enter your text here" onkeyup="setLineTxt(this)">
             <p>Choose stroke color</p><input type="color" onchange="setStrokeColor(this)">
             <p>Choose fill color</p><input type="color" onchange="setFillColor(this)">
-            <button class="btn increase-font" onclick="updateFontSize('+')">+</button>
-            <button class="btn decrease-font" onclick="updateFontSize('-')">-</button>
+            <button class="btn increase-font" onclick="onUpdateFontSize('+')">+</button>
+            <button class="btn decrease-font" onclick="onUpdateFontSize('-')">-</button>
             <button class="btn switch-lines" onclick="switchLines()">switch-lines</button>
+            <!-- <button class="btn switch-lines" onclick="switchLines()">switch-lines</button> -->
             <a href="#" class="btn download" onclick="downloadMeme(this)" download="my-meme.jpg">Download</a>
 
         </div>
 
         <div class="canvas-container">
+            <!-- <canvas id="meme-canvas"></canvas> -->
             <canvas id="meme-canvas" height="350" width="350" onclick="demo()"></canvas>
         </div>
 

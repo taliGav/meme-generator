@@ -23,32 +23,34 @@ function drawMeme(id) {
     img.src = imgs[id - 1].url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
-        drawTextLine(meme.lines[0].txt, meme.lines[0].xLoc, meme.lines[0].yLoc);
+        drawTextLine();
     };
 }
 
-function drawTextLine(text, x, y) {
-    // gCtx.font = '48px serif';
-    // gCtx.fillText(text, x, y);
-    var meme = getMeme();
+function drawTextLine() {
+    const meme = getMeme();
+    const currLine = meme.selectedLineIdx;
+    const text = meme.lines[currLine].txt;
+    const x = meme.lines[currLine].xLoc;
+    const y = meme.lines[currLine].yLoc;
 
-    gCtx.lineWidth = 1;
-    gCtx.strokeStyle = meme.lines[0].strokeColor;
-    gCtx.fillStyle = meme.lines[0].fillColor;
-    gCtx.font = `${meme.lines[0].size}px luckiest-guy`;
+    gCtx.font = `${meme.lines[currLine].size}px luckiest-guy`;
+    gCtx.lineWidth = 2;
+    gCtx.strokeStyle = meme.lines[currLine].strokeColor;
+    gCtx.fillStyle = meme.lines[currLine].fillColor;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }
 
 function setStrokeColor(elInputColor) {
     const meme = getMeme();
-    meme.lines[0].strokeColor = elInputColor.value;
+    meme.lines[meme.selectedLineIdx].strokeColor = elInputColor.value;
     renderMeme();
 }
 
 function setFillColor(elInputColor) {
     const meme = getMeme();
-    meme.lines[0].fillColor = elInputColor.value;
+    meme.lines[meme.selectedLineIdx].fillColor = elInputColor.value;
     renderMeme();
 }
 
@@ -63,22 +65,23 @@ function closeMemeEditor() {
 }
 
 function downloadMeme(elLink) {
-    const data = gCanvas.toDataURL('image/jpeg')
-    elLink.href = data
+    const data = gCanvas.toDataURL('image/jpeg');
+    elLink.href = data;
 }
 
 
-function updateFontSize(val) {
+function onUpdateFontSize(val) {
     const meme = getMeme();
-    var currFontSize = meme.lines[0].size;
+    const currLine = meme.selectedLineIdx;
+    var currFontSize = meme.lines[currLine].size;
 
     switch (val) {
         case '+':
-            meme.lines[0].size = currFontSize + 1;
+            meme.lines[currLine].size = currFontSize + 1;
             renderMeme();
             break;
         case '-':
-            meme.lines[0].size = currFontSize - 1;
+            meme.lines[currLine].size = currFontSize - 1;
             renderMeme();
             break;
     }
