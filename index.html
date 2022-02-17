@@ -43,9 +43,10 @@
             <p>Enter text to your meme</p><input type="text" class="new-line" placeholder="Enter your text here" onkeyup="setLineTxt(this)">
             <p>Choose stroke color</p><input type="color" onchange="setStrokeColor(this)">
             <p>Choose fill color</p><input type="color" onchange="setFillColor(this)">
-            <button class="increase-font" onclick="updateFontSize('+')">+</button>
-            <button class="decrease-font" onclick="updateFontSize('-')">-</button>
-            <button class="switch-lines" onclick="switchLines()">switch-lines</button>
+            <button class="btn increase-font" onclick="updateFontSize('+')">+</button>
+            <button class="btn decrease-font" onclick="updateFontSize('-')">-</button>
+            <button class="btn switch-lines" onclick="switchLines()">switch-lines</button>
+            <button class="btn download" onclick="downloadMeme(this)" download="">Download</button>
         </div>
 
         <div class="canvas-container">

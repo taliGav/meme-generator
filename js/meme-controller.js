@@ -43,7 +43,7 @@ function drawTextLine(text, x, y) {
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = meme.lines[0].strokeColor;
     gCtx.fillStyle = meme.lines[0].fillColor;
-    gCtx.font = `${meme.lines[0].size}px Arial`;
+    gCtx.font = `${meme.lines[0].size}px luckiest-guy`;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }
@@ -70,11 +70,11 @@ function closeMemeEditor() {
     elEditorContainer.hidden = true;
 }
 
-// function downloadCanvas(elLink) {
-//     const data = gCanvas.toDataURL()
-//     elLink.href = data
-//     elLink.download = 'my-img.jpg'
-// }
+function downloadMeme(elLink) {
+    const data = gCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'my-img.jpg'
+}
 
 
 function updateFontSize(val) {
