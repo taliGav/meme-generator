@@ -96,7 +96,7 @@ var gImgs = [{
 ];
 
 
-// function createImgs() {
+// function _createImgs() {
 //     gImgs = loadFromStorage(IMGS_STORAGE_KEY);
 //     if (!gImgs || !gImgs.length) {
 //         gImgs = [
@@ -119,6 +119,7 @@ var gImgs = [{
 
 
 function onInit() {
+    // _createImgs();
     renderGallery();
 }
 

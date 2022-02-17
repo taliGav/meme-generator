@@ -13,3 +13,22 @@
     margin: 0;
     padding: 0;
 }
+
+
+/* flex */
+
+.flex{
+    display: flex;
+}
+
+.flex.space-around {
+    justify-content: space-around
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}

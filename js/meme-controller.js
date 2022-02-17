@@ -63,6 +63,8 @@ function demo() {
 }
 
 function closeMemeEditor() {
+    const elGallerySection = document.querySelector('.gallery');
+    elGallerySection.hidden = false;
     const elEditorContainer = document.querySelector('.editor-container');
     elEditorContainer.hidden = true;
 }

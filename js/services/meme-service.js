@@ -57,12 +57,15 @@ function setLineTxt(el) {
 
 
 function openMemeEditor() {
+    const elGallerySection = document.querySelector('.gallery');
+    elGallerySection.hidden = true;
     console.log('on open meme editor');
     gCanvas = document.getElementById('meme-canvas');
     gCtx = gCanvas.getContext('2d');
 
     const elEditorContainer = document.querySelector('.editor-container');
     elEditorContainer.hidden = false;
+
     
     renderMeme();
     updateInputText();
