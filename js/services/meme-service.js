@@ -8,8 +8,8 @@ var gMeme = {
         {
             txt: 'first',
             size: 26,
-            xLoc: 15,
-            yLoc: 30,
+            xLoc: 20,
+            yLoc: 40,
             align: 'left',
             strokeColor: 'black',
             fillColor: 'white'
@@ -17,8 +17,8 @@ var gMeme = {
         {
             txt: 'sec',
             size: 22,
-            xLoc: 100,
-            yLoc: 60,
+            xLoc: 40,
+            yLoc: 300,
             align: 'left',
             strokeColor: 'black',
             fillColor: 'white'

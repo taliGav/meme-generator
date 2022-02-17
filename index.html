@@ -10,10 +10,10 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-header main-layout">
+    <header class="main-header main-layout flex space-between">
         <div class="logo">MemeGenerator</div>
         <nav class="main-nav-container">
-            <ul class="clean-list">
+            <ul class="main-nav clean-list flex space-between">
                 <li><a href="#" onclick="closeMemeEditor()">Gallery</a></li>
                 <li><a href="#">Saved memes</a></li>
                 <li><a href="#">About</a></li>
@@ -24,21 +24,15 @@
     <section class="gallery main-layout">
         <h2 class="gallery-title">Choose your meme-pic</h2>
         <section class="gallery-container grid">
-            <!-- <img class="img img1" id="1" src="./meme-imgs-square/1.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img2" id="2" src="./meme-imgs-square/2.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img3" id="3" src="./meme-imgs-square/3.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img4" id="4" src="./meme-imgs-square/4.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img5" id="5" src="./meme-imgs-square/5.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img6" id="6" src="./meme-imgs-square/6.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img7" id="7" src="./meme-imgs-square/7.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img8" id="8" src="./meme-imgs-square/8.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img9" id="9" src="./meme-imgs-square/9.jpg" onclick="onImgSelect(this.id)" alt=""> -->
+            <!-- <img class="img img8" id="8" src="./meme-imgs-square/8.jpg" onclick="onImgSelect(this.id)" alt="">
+            <img class="img img9" id="9" src="./meme-imgs-square/9.jpg" onclick="onImgSelect(this.id)" alt=""> --> -->
         </section>
     </section>
 
     <section class="editor-container main-layout " hidden>
         <h1>MEME GENERATOR</h1>
-        <section class="gen-container flex space-around">
+        <section class="gen-container grid">
+        <!-- <section class="gen-container flex space-around wrap"> -->
             <div class="command-panel">
                 <p>Enter text to your meme</p><input id="text-input" type="text" class="new-line"
                     placeholder="Enter your text here" onkeyup="setLineTxt(this)">
@@ -53,7 +47,7 @@
 
             <div class="canvas-container">
                 <!-- <canvas id="meme-canvas"></canvas> -->
-                <canvas id="meme-canvas" height="350" width="350" onclick="demo()"></canvas>
+                <canvas id="meme-canvas" height="400" width="400" onclick="demo()"></canvas>
             </div>
         </section>
 

@@ -21,6 +21,10 @@
     display: flex;
 }
 
+.flex.space-between{
+justify-content: space-between;
+}
+
 .flex.space-around {
     justify-content: space-around
 }
@@ -31,4 +35,8 @@
 
 .flex.justify-center {
     justify-content: center;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
 }
