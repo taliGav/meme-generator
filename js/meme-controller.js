@@ -4,6 +4,8 @@ console.log('meme editor controller');
 
 var gCanvas;
 var gCtx;
+var gStartPos;
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
 
 
@@ -13,7 +15,6 @@ function renderMeme() {
     var meme = getMeme();
     drawMeme(meme.selectedImgId);
 }
-
 
 function setStrokeColor(elInputColor) {
     const meme = getMeme();
@@ -58,6 +59,7 @@ function onUpdateFontSize(val) {
 
 function onSwitchLines() {
     console.log('switch lines func activated');
+    setSelectedLineIdx();
     setSelectedLine();
     // console.log('meme line[meme.selectedLineIdx]',gMeme.lines[gMeme.selectedLineIdx].txt);
     updateInputText();
@@ -66,12 +68,14 @@ function onSwitchLines() {
 
 function onAddLine() {
     addNewLine();
+    setSelectedLine();
     updateInputText();
     renderMeme();
 }
 
 function onRemoveLine(){
     removeLine();
+    setSelectedLine();
     updateInputText();
     renderMeme();
 }
