@@ -3,6 +3,7 @@
 console.log('gallery controller');
 
 // const IMGS_STORAGE_KEY = 'imgsDB';
+// var gImgIdx = 1;
 var gImgs = [{
     id: 1,
     url: './meme-imgs-square/1.jpg',
@@ -95,7 +96,6 @@ var gImgs = [{
 }
 ];
 
-
 // function _createImgs() {
 //     gImgs = loadFromStorage(IMGS_STORAGE_KEY);
 //     if (!gImgs || !gImgs.length) {
@@ -104,19 +104,19 @@ var gImgs = [{
 //         ];
 //         _saveImgsToStorage();
 //     }
-
 // }
 
 // function _saveImgsToStorage() {
 //     _saveImgsToStorage(IMGS_STORAGE_KEY, gImgs);
 // }
 
-// function _createImg() {
-//     id,
-//     url,
-//     keywords
+// function _createImg(keywords) {
+//     return {
+//         id: gImgIdx++,
+//         url: `./meme-imgs-square/${gImgIdx}.jpg`,
+//         keywords
+//     };
 // }
-
 
 function onInit() {
     // _createImgs();
@@ -133,7 +133,6 @@ function renderGallery() {
         return `
         <img class="img img${img.id}" id="${img.id}" src="${img.url}" onclick="onImgSelect(this.id)" alt="">`;
     });
-
     document.querySelector('.gallery-container').innerHTML = strHtml.join('');
 }
 
@@ -141,5 +140,3 @@ function onImgSelect(id) {
     setImg(id);
     openMemeEditor();
 }
-
-

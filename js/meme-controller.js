@@ -11,39 +11,9 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
 function renderMeme() {
     // renders an image on the canvas and a line of text on top
     var meme = getMeme();
-    // var img = getImgForDisp(meme.selectedImgId);
     drawMeme(meme.selectedImgId);
 }
 
-function drawMeme(id) {
-    var img = new Image();
-    const meme = getMeme();
-    const imgs = getImgs();
-    img.src = imgs[id - 1].url;
-    img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
-        drawTextLines();
-    };
-}
-
-function drawTextLines() {
-    const meme = getMeme();
-    meme.lines.forEach(line => drawTextLine(meme.lines.indexOf(line)));
-}
-
-function drawTextLine(currLine) {
-    const meme = getMeme();
-    const text = meme.lines[currLine].txt;
-    const x = meme.lines[currLine].xLoc;
-    const y = meme.lines[currLine].yLoc;
-    
-    gCtx.lineWidth = 2;
-    gCtx.strokeStyle = meme.lines[currLine].strokeColor;
-    gCtx.fillStyle = meme.lines[currLine].fillColor;
-    gCtx.font = `${meme.lines[currLine].size}px luckiest-guy`;
-    gCtx.fillText(text, x, y);
-    gCtx.strokeText(text, x, y);
-}
 
 function setStrokeColor(elInputColor) {
     const meme = getMeme();
@@ -57,11 +27,6 @@ function setFillColor(elInputColor) {
     renderMeme();
 }
 
-
-function demo() {
-    console.log('canvas on click demo');
-}
-
 function closeMemeEditor() {
     const elGallerySection = document.querySelector('.gallery');
     elGallerySection.hidden = false;
@@ -69,11 +34,10 @@ function closeMemeEditor() {
     elEditorContainer.hidden = true;
 }
 
-function downloadMeme(elLink) {
+function onDownloadMeme(elLink) {
     const data = gCanvas.toDataURL('image/jpeg');
     elLink.href = data;
 }
-
 
 function onUpdateFontSize(val) {
     const meme = getMeme();
@@ -92,10 +56,22 @@ function onUpdateFontSize(val) {
     }
 }
 
-function switchLines() {
+function onSwitchLines() {
     console.log('switch lines func activated');
     setSelectedLine();
     // console.log('meme line[meme.selectedLineIdx]',gMeme.lines[gMeme.selectedLineIdx].txt);
     updateInputText();
+    // add text ouline or something as focus
 }
 
+function onAddLine() {
+    addNewLine();
+    updateInputText();
+    renderMeme();
+}
+
+function onRemoveLine(){
+    removeLine();
+    updateInputText();
+    renderMeme();
+}

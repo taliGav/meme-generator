@@ -10,7 +10,7 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-header main-layout flex space-between">
+    <header class="main-header main-layout flex space-between align-center">
         <div class="logo">MemeGenerator</div>
         <nav class="main-nav-container">
             <ul class="main-nav clean-list flex space-between">
@@ -42,20 +42,22 @@
                 </div>
                 <div>Choose fill color<input type="color" onchange="setFillColor(this)">
                 </div>
-                <button class="btn increase-font" onclick="onUpdateFontSize('+')">+</button>
-                <button class="btn decrease-font" onclick="onUpdateFontSize('-')">-</button>
-                <button class="btn switch-lines" onclick="switchLines()">switch-lines</button>
-                <!-- <button class="btn switch-lines" onclick="switchLines()">switch-lines</button> -->
+                <button class="btn icon increase-font" onclick="onUpdateFontSize('+')"><img src="./ICONS/increase font - icon.png" alt=""></button>
+                <button class="btn icon decrease-font" onclick="onUpdateFontSize('-')"><img src="./ICONS/decrease font - icon.png" alt=""></button>
+                <button class="btn icon switch-lines" onclick="onSwitchLines()"><img src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button class="btn icon add-line" onclick="onAddLine()"><img src="./ICONs/add.png" alt=""></button>
+                <button class="btn icon remove-line" onclick="onRemoveLine()"><img src="./ICONS/trash.png" alt=""></button>
+                <!-- <button class="btn icon decrease-font" onclick="onUpdateFontSize('-')"><img src="./ICONS/decrease font - icon.png" alt=""></button>
+                <button class="btn icon switch-lines" onclick="switchLines()"><img src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button> -->
                 <br>
             </div>
 
             <div class="canvas-container">
-                <!-- <canvas id="meme-canvas"></canvas> -->
                 <canvas id="meme-canvas" height="400" width="400" onclick="demo()"></canvas>
             </div>
 
             <div class="download">
-                <a href="#" class="btn download" onclick="downloadMeme(this)" download="my-meme.jpg">Download your
+                <a href="#" class="btn download" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download your
                     meme !</a>
             </div>
         </section>
