@@ -75,3 +75,20 @@ function onRemoveLine(){
     updateInputText();
     renderMeme();
 }
+
+function onShareToFb() {
+    const imgDataUrl = gCanvas.toDataURL("image/jpeg");
+    console.log('imgDataUrl',imgDataUrl);
+
+    doUploadImg(imgDataUrl, onSuccess);
+
+    function onSuccess(uploadedImgUrl) {
+        // console.log('uploadedImgUrl',uploadedImgUrl);
+        // const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        // console.log('encodedUploadedImgUrl',encodedUploadedImgUrl);
+
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`,'_blank')
+        // window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`,'_blank')
+    }    
+}
+

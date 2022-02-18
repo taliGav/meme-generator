@@ -129,6 +129,26 @@ function removeLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }
 
+function doUploadImg(imgDataUrl, onSuccess) {
+
+    const formData = new FormData();
+    formData.append('img', imgDataUrl)
+
+    fetch('//ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.text())
+    .then((url)=>{
+        console.log('Got back live url:', url);
+        onSuccess(url)
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+}
+
+
 
 // gCtx.strokeText('Saving the context', 10, 50)
 //   gCtx.save()
