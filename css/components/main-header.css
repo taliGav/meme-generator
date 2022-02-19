@@ -1,9 +1,20 @@
 .main-header {
-
+background-color: var(--clr3);
+/* background-color: rgb(246, 162, 129); */
+padding-bottom: 10px;
 }
 
 .logo {
     font-size: 2em;
-    text-shadow: 4px 4px rgb(238, 180, 129);
+    /* text-shadow: 4px 4px rgb(238, 180, 129); */
+    text-shadow: 4px 4px rgb(235, 222, 175);
+    /* color: rgb(255, 240, 188); */
 }
 
+.main-nav{
+color: #A68DAD;
+}
+
+.btn-menu {
+    margin-inline-end: 20px;
+}

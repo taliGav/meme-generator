@@ -46,7 +46,7 @@ function setFillColor(elInputColor) {
 function openGallery() {
     const elGallerySection = document.querySelector('.gallery');
     elGallerySection.hidden = false;
-    const elEditorContainer = document.querySelector('.editor-container');
+    const elEditorContainer = document.querySelector('.editor-section');
     elEditorContainer.hidden = true;
     const elSaved = document.querySelector('.saved-memes');
     elSaved.hidden = true;

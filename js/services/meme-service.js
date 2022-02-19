@@ -43,7 +43,7 @@ function openMemeEditor() {
     gCanvas = document.getElementById('meme-canvas');
     gCtx = gCanvas.getContext('2d');
 
-    const elEditorContainer = document.querySelector('.editor-container');
+    const elEditorContainer = document.querySelector('.editor-section');
     elEditorContainer.hidden = false;
 
     updateInputText();

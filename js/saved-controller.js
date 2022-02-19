@@ -8,7 +8,7 @@ var gSavedMemes = [];
 function openSavedTab() {
     const elSaved = document.querySelector('.saved-memes');
     elSaved.hidden = false;
-    const elEditorContainer = document.querySelector('.editor-container');
+    const elEditorContainer = document.querySelector('.editor-section');
     elEditorContainer.hidden = true;
     const elGallerySection = document.querySelector('.gallery');
     elGallerySection.hidden = true;

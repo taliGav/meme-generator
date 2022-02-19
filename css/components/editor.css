@@ -1,4 +1,17 @@
+.editor-section>*{
+    font-family: 'alfa';
+}
+
 .icon{
     width: 50px;
     height: 40px;
+}
+
+.editor-section h1 {
+    margin-top: 50px;
+    font-size: 1.1em;
+}
+
+.editor-container{
+    font-size: .8em;
 }

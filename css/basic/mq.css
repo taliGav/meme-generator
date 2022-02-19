@@ -43,7 +43,6 @@
 @media (min-width: 920px) {
 
     .btn-menu {
-        margin-inline-end: 25px;
         display: none;
     }
 
