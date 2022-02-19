@@ -5,7 +5,7 @@ console.log('meme editor controller');
 var gCanvas;
 var gCtx;
 var gStartPos;
-const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
 
 
@@ -14,6 +14,11 @@ function renderMeme() {
     // renders an image on the canvas and a line of text on top
     var meme = getMeme();
     drawMeme(meme.selectedImgId);
+}
+
+function onSetFont(font) {
+    setFont(font);
+    renderMeme();
 }
 
 function setStrokeColor(elInputColor) {
@@ -41,29 +46,17 @@ function onDownloadMeme(elLink) {
 }
 
 function onUpdateFontSize(val) {
-    const meme = getMeme();
-    const currLine = meme.selectedLineIdx;
-    var currFontSize = meme.lines[currLine].size;
-
-    switch (val) {
-        case '+':
-            meme.lines[currLine].size = currFontSize + 1;
-            renderMeme();
-            break;
-        case '-':
-            meme.lines[currLine].size = currFontSize - 1;
-            renderMeme();
-            break;
-    }
+    setFontSize(val);
+    renderMeme();
 }
 
 function onSwitchLines() {
     console.log('switch lines func activated');
     setSelectedLineIdx();
     setSelectedLine();
-    // console.log('meme line[meme.selectedLineIdx]',gMeme.lines[gMeme.selectedLineIdx].txt);
+    console.log('meme line[meme.selectedLineIdx]', gMeme.lines[gMeme.selectedLineIdx].txt, 'meme.lines[currLineIdx].size', gMeme.lines[gMeme.selectedLineIdx].size);
     updateInputText();
-    // add text ouline or something as focus
+    renderMeme();
 }
 
 function onAddLine() {
@@ -73,26 +66,26 @@ function onAddLine() {
     renderMeme();
 }
 
-function onRemoveLine(){
+function onRemoveLine() {
     removeLine();
     setSelectedLine();
     updateInputText();
     renderMeme();
 }
 
-function onShareToFb() {
+function onShareOnFb() {
     const imgDataUrl = gCanvas.toDataURL("image/jpeg");
-    console.log('imgDataUrl',imgDataUrl);
+    console.log('imgDataUrl', imgDataUrl);
 
     doUploadImg(imgDataUrl, onSuccess);
 
     function onSuccess(uploadedImgUrl) {
-        // console.log('uploadedImgUrl',uploadedImgUrl);
-        // const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        // console.log('encodedUploadedImgUrl',encodedUploadedImgUrl);
+        console.log('uploadedImgUrl', uploadedImgUrl);
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+        console.log('encodedUploadedImgUrl', encodedUploadedImgUrl);
 
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`,'_blank')
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`, '_blank');
         // window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`,'_blank')
-    }    
+    }
 }
 

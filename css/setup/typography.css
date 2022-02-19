@@ -7,3 +7,23 @@
     font-family: luckiest-guy;
     src: url(../../fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf);
 }
+
+@font-face {
+    font-family: titan;
+    src: url(../../fonts/titan/TitanOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: alfa;
+    src: url(../../fonts/Alfa/AlfaSlabOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: bowlby;
+    src: url(../../fonts/bowlby/BowlbyOneSC-Regular.ttf);
+}
+
+@font-face {
+    font-family: suez-heb;
+    src: url(../../fonts/suez/SuezOne-Regular.ttf);
+}
