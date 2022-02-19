@@ -10,7 +10,6 @@ var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
 
 
 const MEMES_STORAGE_KEY = 'memesDB';
-var gSavedMemes = [];
 
 function _saveMemesToStorage() {
     saveToStorage(MEMES_STORAGE_KEY, gSavedMemes);
