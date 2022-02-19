@@ -1,0 +1,41 @@
+/* MOBILE ONLY   */
+
+@media (max-width: 900px) {
+
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;    
+        flex-direction: column;
+        justify-content: start;
+        height: 100vh;
+        background-color: rgb(255 255 255 / 50%);
+        box-shadow: -10px 0px 15px rgb(0 0 0 / 20%);
+        min-width: 180px;
+    }
+
+
+    li {
+        padding: 15px;
+    }
+    
+}
+
+
+@media (min-width: 900px) {
+
+    .main-nav {
+        justify-content: space-between;
+    }
+    
+    li {
+        padding: 0 10px 0;
+    }
+    
+    li a {
+        text-decoration: none;
+        text-shadow: 2px 2px whitesmoke;
+    }
+    
+}
