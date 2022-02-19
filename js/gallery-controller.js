@@ -123,6 +123,10 @@ function onInit() {
     renderGallery();
 }
 
+function toggleMenu(){
+    document.body.classList.toggle('menu-open')
+}
+
 function getImgs() {
     return gImgs;
 }

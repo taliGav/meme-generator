@@ -13,6 +13,7 @@
 /* COMPONENTS */
 
 @import './components/main-header.css';
+@import './components/screen.css';
 @import './components/gallery.css';
 @import './components/editor.css';
 @import './components/saved.css';

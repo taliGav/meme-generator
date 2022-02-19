@@ -1,7 +1,7 @@
 /* grid */
 
 .grid {
-    display:grid;
+    display: grid;
     gap: 15px;
 }
 
@@ -14,15 +14,18 @@
     padding: 0;
 }
 
+.clean-list>li>* {
+    text-decoration: none;
+}
 
 /* flex */
 
-.flex{
+.flex {
     display: flex;
 }
 
-.flex.space-between{
-justify-content: space-between;
+.flex.space-between {
+    justify-content: space-between;
 }
 
 .flex.space-around {
