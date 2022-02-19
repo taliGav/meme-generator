@@ -10,7 +10,7 @@ var gMeme = {
         {
             txt: 'example1',
             size: 30,
-            pos: { x: 20, y: 40 },
+            pos: { x: 20, y: 50 },
             align: 'left',
             font: 'Impact',
             strokeColor: 'black',
@@ -20,7 +20,7 @@ var gMeme = {
         {
             txt: 'example2',
             size: 25,
-            pos: { x: 20, y: 70 },
+            pos: { x: 20, y: 350 },
             align: 'left',
             font: 'Impact',
             strokeColor: 'black',
@@ -139,8 +139,8 @@ function addNewLine() {
 
     var emptyLine = {
         txt: '',
-        size: 22,
-        pos: { x: 20, y: gMeme.lines[length - 1].pos.y + 20 },
+        size: 25,
+        pos: { x: 20, y: length* 50 },
         align: 'left',
         font: 'Impact',
         strokeColor: 'black',
