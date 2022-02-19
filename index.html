@@ -14,8 +14,8 @@
         <div class="logo">MemeGenerator</div>
         <nav class="main-nav-container">
             <ul class="main-nav clean-list flex space-between">
-                <li><a href="#" onclick="closeMemeEditor()">Gallery</a></li>
-                <li><a href="#">Saved memes</a></li>
+                <li><a href="#" onclick="openGallery()">Gallery</a></li>
+                <li><a href="#" onclick="openSavedTab()">Saved memes</a></li>
                 <li><a href="#">About</a></li>
             </ul>
         </nav>
@@ -23,10 +23,7 @@
 
     <section class="gallery main-layout">
         <h2 class="gallery-title">Choose your meme-pic</h2>
-        <section class="gallery-container grid">
-            <!-- <img class="img img8" id="8" src="./meme-imgs-square/8.jpg" onclick="onImgSelect(this.id)" alt="">
-            <img class="img img9" id="9" src="./meme-imgs-square/9.jpg" onclick="onImgSelect(this.id)" alt=""> --> -->
-        </section>
+        <section class="gallery-container grid"></section>
     </section>
 
     <section class="editor-container main-layout" hidden>
@@ -44,8 +41,8 @@
                     <option value="alfa">Alfa</option>
                     <option value="bowlby">Bowlby</option>
                     <option value="suez-heb">Suez-heb</option>
-                  </select>
-            
+                </select>
+
                 <!-- <p>Enter text to your meme</p><input id="text-input" type="text" class="new-line"
                     placeholder="Enter your text here" onkeyup="setLineTxt(this)"> -->
                 <div>Enter text to your meme<input id="text-input" type="text" class="new-line"
@@ -54,11 +51,15 @@
                 </div>
                 <div>Choose fill color<input type="color" onchange="setFillColor(this)">
                 </div>
-                <button class="btn icon increase-font" onclick="onUpdateFontSize('+')"><img src="./ICONS/increase font - icon.png" alt=""></button>
-                <button class="btn icon decrease-font" onclick="onUpdateFontSize('-')"><img src="./ICONS/decrease font - icon.png" alt=""></button>
-                <button class="btn icon switch-lines" onclick="onSwitchLines()"><img src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button class="btn icon increase-font" onclick="onUpdateFontSize('+')"><img
+                        src="./ICONS/increase font - icon.png" alt=""></button>
+                <button class="btn icon decrease-font" onclick="onUpdateFontSize('-')"><img
+                        src="./ICONS/decrease font - icon.png" alt=""></button>
+                <button class="btn icon switch-lines" onclick="onSwitchLines()"><img
+                        src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                 <button class="btn icon add-line" onclick="onAddLine()"><img src="./ICONs/add.png" alt=""></button>
-                <button class="btn icon remove-line" onclick="onRemoveLine()"><img src="./ICONS/trash.png" alt=""></button>
+                <button class="btn icon remove-line" onclick="onRemoveLine()"><img src="./ICONS/trash.png"
+                        alt=""></button>
                 <!-- <button class="btn icon decrease-font" onclick="onUpdateFontSize('-')"><img src="./ICONS/decrease font - icon.png" alt=""></button>
                 <button class="btn icon switch-lines" onclick="switchLines()"><img src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button> -->
                 <br>
@@ -70,19 +71,30 @@
 
             <button class="btn" onclick="onShareOnFb()">share meme to fb</button>
 
+            <div class="save-meme">
+                <a href="#" class="btn save-meme" onclick="onSaveMeme()">Save your
+                    meme !</a>
+            </div>
             <div class="download">
                 <a href="#" class="btn download" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download your
                     meme !</a>
             </div>
         </section>
+    </section>
 
+    <section class="saved-memes main-layout" hidden>
+        <h2 class="saved-title">Your saved memes</h2>
+        <section class="saved-container grid">
+        </section>
     </section>
 
     <script src="./js/services/storage-service.js"></script>
     <script src="./js/services/meme-service.js"></script>
     <script src="./js/services/gallery-service.js"></script>
-    <script src="./js/meme-controller.js"></script>
+    <script src="./js/services/saved-service.js"></script>
     <script src="./js/gallery-controller.js"></script>
+    <script src="./js/meme-controller.js"></script>
+    <script src="./js/saved-controller.js"></script>
 </body>
 
 </html>

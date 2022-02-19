@@ -107,7 +107,7 @@ var gImgs = [{
 // }
 
 // function _saveImgsToStorage() {
-//     _saveImgsToStorage(IMGS_STORAGE_KEY, gImgs);
+//     saveToStorage(IMGS_STORAGE_KEY, gImgs);
 // }
 
 // function _createImg(keywords) {
@@ -141,3 +141,9 @@ function onImgSelect(id) {
     openMemeEditor();
 }
 
+
+
+
+//// random color
+// var randomColor = Math.floor(Math.random()*16777215).toString(16);
+// color.innerHTML = "#" + randomColor;

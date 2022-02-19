@@ -9,6 +9,17 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
 
 
+const MEMES_STORAGE_KEY = 'memesDB';
+var gSavedMemes = [];
+
+function _saveMemesToStorage() {
+    saveToStorage(MEMES_STORAGE_KEY, gSavedMemes);
+}
+
+function getSaved() {
+    return gSavedMemes;
+}
+
 
 function renderMeme() {
     // renders an image on the canvas and a line of text on top
@@ -33,17 +44,15 @@ function setFillColor(elInputColor) {
     renderMeme();
 }
 
-function closeMemeEditor() {
+function openGallery() {
     const elGallerySection = document.querySelector('.gallery');
     elGallerySection.hidden = false;
     const elEditorContainer = document.querySelector('.editor-container');
     elEditorContainer.hidden = true;
+    const elSaved = document.querySelector('.saved-memes');
+    elSaved.hidden = true;
 }
 
-function onDownloadMeme(elLink) {
-    const data = gCanvas.toDataURL('image/jpeg');
-    elLink.href = data;
-}
 
 function onUpdateFontSize(val) {
     setFontSize(val);
@@ -89,3 +98,13 @@ function onShareOnFb() {
     }
 }
 
+function onSaveMeme() {
+    const imgDataUrl = gCanvas.toDataURL("image/jpeg");
+    gSavedMemes.push(imgDataUrl);
+    _saveMemesToStorage();
+}
+
+function onDownloadMeme(elLink) {
+    const data = gCanvas.toDataURL('image/jpeg');
+    elLink.href = data;
+}

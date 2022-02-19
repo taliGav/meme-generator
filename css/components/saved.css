@@ -1,0 +1,7 @@
+.saved-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.selected {
+    border: 4px solid yellow;
+}
