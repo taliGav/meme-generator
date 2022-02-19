@@ -104,7 +104,10 @@ function _drawTextLine(currLine) {
 
 function _focusOnSelectedLine() {
     const currSelectedLine = gMeme.lines[gMeme.selectedLineIdx];
+    console.log('idx', gMeme.selectedLineIdx, 'currSelectedLine',currSelectedLine );
     const { txt } = currSelectedLine;
+    console.log('txt',txt);
+
     var textWidth = gCtx.measureText(txt).width;
     var boundingHeight = gCtx.measureText(txt).fontBoundingBoxAscent;
     var x = currSelectedLine.pos.x - 5;
@@ -324,18 +327,12 @@ function onUp() {
     document.body.style.cursor = 'grab';
 }
 
-// function resizeCanvas() {
-//     const elContainer = document.querySelector('.canvas-container')
-//     gElCanvas.width = elContainer.offsetWidth
-//     gElCanvas.height = elContainer.offsetHeight
-// }
-
 function getEvPos(ev) {
     var pos = {
         x: ev.offsetX,
         y: ev.offsetY
     };
-    console.log();
+    console.log('pos click',pos);
     if (gTouchEvs.includes(ev.type)) {
         ev.preventDefault();
         ev = ev.changedTouches[0];
@@ -357,18 +354,14 @@ function getSelectedLine() {
 
 function isSelectedLineClicked(clickedPos) {
     const { pos } = gSelectedLine;
-    console.log(pos);
     const { txt } = gSelectedLine;
-
-    console.log(txt);
-
     var textMeasure = gCtx.measureText(txt);
-    console.log('textMeasure', textMeasure);
+    var boundingHeight = gCtx.measureText(txt).fontBoundingBoxAscent;
     var textWidth = gCtx.measureText(txt).width;
-    console.log('textWidth', textWidth);
 
-    const distance = Math.sqrt((pos.x + textWidth - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2);
-    return distance <= gSelectedLine.size;
+    const distance = Math.sqrt((pos.x + textWidth - clickedPos.x) ** 2 + (pos.y + boundingHeight - clickedPos.y) ** 2);
+    const maxDistance = Math.sqrt(textWidth**2 + boundingHeight**2)
+    return distance <= maxDistance/2;
 }
 
 function setSelectedLineDrag(isDragged) {
@@ -380,8 +373,8 @@ function moveSelectedLine(dx, dy) {
     gSelectedLine.pos.y += dy;
 }
 
-
-// gCtx.strokeText('Saving the context', 10, 50)
-//   gCtx.save()
-
-// gCtx.restore()
+// function resizeCanvas() {
+//     const elContainer = document.querySelector('.canvas-container')
+//     gCanvas.width = elContainer.offsetWidth
+//     gCanvas.height = elContainer.offsetHeight
+// }

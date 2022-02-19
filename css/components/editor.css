@@ -1,8 +1,4 @@
-/* .editor-section>*{
-    font-family: 'alfa';
-} */
-
-.icon{
+.icon {
     width: 50px;
     height: 40px;
 }
@@ -12,8 +8,17 @@
     font-size: 1.1em;
 }
 
-.editor-container{
+.editor-container {
     padding: 15px;
     font-family: 'alfa';
     font-size: .8em;
+}
+
+.editor-container .grid {
+    justify-items: center;
+}
+
+.editor-section .btn {
+    justify-self: center;
+    max-width: 380px;
 }

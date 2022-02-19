@@ -5,9 +5,7 @@
 body {
     margin: 0;
     background-color: var(--clr2);
-    /* background-color: bisque; */
     font-family: lobster;
-    /* font-family: 'alfa'; */
     font-size: 1.8em;
 }
 
