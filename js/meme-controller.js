@@ -19,7 +19,6 @@ function getSaved() {
     return gSavedMemes;
 }
 
-
 function renderMeme() {
     // renders an image on the canvas and a line of text on top
     var meme = getMeme();
@@ -51,7 +50,6 @@ function openGallery() {
     const elSaved = document.querySelector('.saved-memes');
     elSaved.hidden = true;
 }
-
 
 function onUpdateFontSize(val) {
     setFontSize(val);

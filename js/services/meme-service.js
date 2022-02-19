@@ -236,17 +236,17 @@ function setFontSize(val) {
 ///  INHERIT FUNC USED ON SHARE MEME TO FB  /////
 
 function doUploadImg(imgDataUrl, onSuccess) {
-
+    
     const formData = new FormData();
     console.log('formData', formData);
     formData.append('img', imgDataUrl);
-
+    
     fetch('//ca-upload.com/here/upload.php', {
         method: 'POST',
         body: formData
     })
-        .then(res => res.text())
-        .then((url) => {
+    .then(res => res.text())
+    .then((url) => {
             console.log('Got back live url:', url);
             onSuccess(url);
         })
@@ -254,18 +254,6 @@ function doUploadImg(imgDataUrl, onSuccess) {
             console.error(err);
         });
 }
-
-
-
-
-
-
-// gCtx.strokeText('Saving the context', 10, 50)
-//   gCtx.save()
-
-// gCtx.restore()
-
-
 
 
 
@@ -299,8 +287,8 @@ function onDown(ev) {
     if (!isSelectedLineClicked(pos)) return;
     setSelectedLineDrag(true);
     gStartPos = pos;
+    console.log('gStartPos',gStartPos);
     document.body.style.cursor = 'grabbing';
-
 }
 
 function onMove(ev) {
@@ -310,9 +298,9 @@ function onMove(ev) {
         const pos = getEvPos(ev);
         const dx = pos.x - gStartPos.x;
         const dy = pos.y - gStartPos.y;
-        moveCircle(dx, dy);
+        moveSelectedLine(dx, dy);
         gStartPos = pos;
-        renderCanvas();
+        renderMeme();
     }
 }
 
@@ -379,3 +367,7 @@ function moveSelectedLine(dx, dy) {
 }
 
 
+// gCtx.strokeText('Saving the context', 10, 50)
+//   gCtx.save()
+
+// gCtx.restore()
