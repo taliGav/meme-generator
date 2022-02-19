@@ -2,18 +2,19 @@
     box-sizing: border-box;
 }
 
-html{
-    font-family: luckiest-guy;
-}
-
 body {
     margin: 0;
     background-color: var(--clr2);
     /* background-color: bisque; */
     font-family: lobster;
+    /* font-family: 'alfa'; */
     font-size: 1.8em;
 }
 
+h1,
+h2{
+    padding: 20px;
+}
 canvas {
     background-color: white;
 }

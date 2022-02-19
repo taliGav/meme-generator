@@ -63,21 +63,21 @@ function onSwitchLines() {
     setSelectedLineIdx();
     setSelectedLine();
     console.log('meme line[meme.selectedLineIdx]', gMeme.lines[gMeme.selectedLineIdx].txt, 'meme.lines[currLineIdx].size', gMeme.lines[gMeme.selectedLineIdx].size);
-    updateInputText();
+    renderToEls();
     renderMeme();
 }
 
 function onAddLine() {
     addNewLine();
     setSelectedLine();
-    updateInputText();
+    renderToEls();
     renderMeme();
 }
 
 function onRemoveLine() {
     removeLine();
     setSelectedLine();
-    updateInputText();
+    renderToEls();
     renderMeme();
 }
 

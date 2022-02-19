@@ -1,6 +1,6 @@
-.editor-section>*{
+/* .editor-section>*{
     font-family: 'alfa';
-}
+} */
 
 .icon{
     width: 50px;
@@ -13,5 +13,7 @@
 }
 
 .editor-container{
+    padding: 40px;
+    font-family: 'alfa';
     font-size: .8em;
 }

@@ -29,9 +29,14 @@
     </section>
 
     <section class="editor-section main-layout" hidden>
-        <h1>MEME GENERATOR</h1>
+        <!-- <h1>MEME GENERATOR</h1> -->
         <section class="editor-container grid">
             <!-- <section class="gen-container flex space-around wrap"> -->
+
+            <div class="canvas-container">
+                <canvas id="meme-canvas" height="400" width="400"></canvas>
+            </div>
+
             <div class="command-panel">
 
                 <select class="form-select" aria-label="Default select example" onchange="onSetFont(this.value)">
@@ -45,30 +50,31 @@
                     <option value="suez-heb">Suez-heb</option>
                 </select>
 
-                <!-- <p>Enter text to your meme</p><input id="text-input" type="text" class="new-line"
-                    placeholder="Enter your text here" onkeyup="setLineTxt(this)"> -->
                 <div>Enter text to your meme<input id="text-input" type="text" class="new-line"
                         placeholder="Enter your text here" onkeyup="setLineTxt(this)"></div>
+
                 <div>Choose stroke color<input type="color" onchange="setStrokeColor(this)">
                 </div>
+
                 <div>Choose fill color<input type="color" onchange="setFillColor(this)">
                 </div>
+
                 <button class="btn icon increase-font" onclick="onUpdateFontSize('+')"><img
                         src="./ICONS/increase font - icon.png" alt=""></button>
+
                 <button class="btn icon decrease-font" onclick="onUpdateFontSize('-')"><img
                         src="./ICONS/decrease font - icon.png" alt=""></button>
+
                 <button class="btn icon switch-lines" onclick="onSwitchLines()"><img
                         src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+
                 <button class="btn icon add-line" onclick="onAddLine()"><img src="./ICONS/add.png" alt=""></button>
+
                 <button class="btn icon remove-line" onclick="onRemoveLine()"><img src="./ICONS/trash.png"
                         alt=""></button>
                 <!-- <button class="btn icon decrease-font" onclick="onUpdateFontSize('-')"><img src="./ICONS/decrease font - icon.png" alt=""></button>
-                <button class="btn icon switch-lines" onclick="switchLines()"><img src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button> -->
+                    <button class="btn icon switch-lines" onclick="switchLines()"><img src="./ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button> -->
                 <br>
-            </div>
-
-            <div class="canvas-container">
-                <canvas id="meme-canvas" height="400" width="400"></canvas>
             </div>
 
             <button class="btn" onclick="onShareOnFb()">share meme to fb</button>

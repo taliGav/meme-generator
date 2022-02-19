@@ -46,7 +46,7 @@ function openMemeEditor() {
     const elEditorContainer = document.querySelector('.editor-section');
     elEditorContainer.hidden = false;
 
-    updateInputText();
+    renderToEls();
     setSelectedLine();
     addListeners();
     renderMeme();
@@ -164,11 +164,21 @@ function removeLine() {
     // console.log('gMeme after line removed + selected line update', gMeme);
 }
 
-///  UPDATE TEXT ON INPUT BY AN ARR ITEM  /////
+///  UPDATE TEXT & FONT ON INPUT BY AN ARR ITEM PLUS RENDER  /////
 
-function updateInputText() {
+function _updateInputText() {
     document.getElementById("text-input").value = gMeme.lines[gMeme.selectedLineIdx].txt;
 }
+
+function _updateSelectFont() {
+    document.querySelector('.form-select').value = gMeme.lines[gMeme.selectedLineIdx].font;
+}
+
+function renderToEls(){
+    _updateInputText();
+    _updateSelectFont();
+}
+
 
 /// SET FONT and FONT SIZE ////
 
@@ -367,3 +377,5 @@ function moveSelectedLine(dx, dy) {
     gSelectedLine.pos.x += dx;
     gSelectedLine.pos.y += dy;
 }
+
+
