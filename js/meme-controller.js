@@ -96,9 +96,7 @@ function onShareOnFb() {
 }
 
 function onSaveMeme() {
-    const imgDataUrl = gCanvas.toDataURL("image/jpeg");
-    gSavedMemes.push(imgDataUrl);
-    _saveMemesToStorage();
+    drawMemeForSave();
 }
 
 function onDownloadMeme(elLink) {

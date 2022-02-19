@@ -67,9 +67,23 @@ function drawMeme(id) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
         _drawTextLines();
-        // _focusOnSelectedLine();
+        _focusOnSelectedLine();
     };
 }
+
+function drawMemeForSave() {
+    var img = new Image();
+    const imgs = getImgs();
+    img.src = imgs[gMeme.selectedImgId - 1].url;
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
+        _drawTextLines();
+        const imgDataUrl = gCanvas.toDataURL("image/jpeg");
+        gSavedMemes.push(imgDataUrl);
+        _saveMemesToStorage();
+    };
+}
+
 
 function _drawTextLines() {
     gMeme.lines.forEach(line => _drawTextLine(gMeme.lines.indexOf(line)));
@@ -88,24 +102,24 @@ function _drawTextLine(currLine) {
     gCtx.strokeText(text, x, y);
 }
 
-// function _focusOnSelectedLine() {
-//     const currSelectedLine = gMeme.lines[gMeme.selectedLineIdx];
-//     const { txt } = currSelectedLine;
-//     var textWidth = gCtx.measureText(txt).width;
-//     var boundingHeight = gCtx.measureText(txt).fontBoundingBoxAscent;
-//     var x = currSelectedLine.pos.x - 5;
-//     var y = currSelectedLine.pos.y + 5;
+function _focusOnSelectedLine() {
+    const currSelectedLine = gMeme.lines[gMeme.selectedLineIdx];
+    const { txt } = currSelectedLine;
+    var textWidth = gCtx.measureText(txt).width;
+    var boundingHeight = gCtx.measureText(txt).fontBoundingBoxAscent;
+    var x = currSelectedLine.pos.x - 5;
+    var y = currSelectedLine.pos.y + 5;
 
-//     console.log(gCtx.measureText(txt));
-//     console.log('textWidth', textWidth);
-//     console.log('boundingHeight', boundingHeight);
-//     console.log('x', x);
-//     console.log('y', y);
+    console.log(gCtx.measureText(txt));
+    console.log('textWidth', textWidth);
+    console.log('boundingHeight', boundingHeight);
+    console.log('x', x);
+    console.log('y', y);
 
-//     gCtx.strokeStyle = 'white';
-//     gCtx.linewidth = 2;
-//     gCtx.strokeRect(x, y, textWidth + 15, -boundingHeight - 10);
-// }
+    gCtx.strokeStyle = 'white';
+    gCtx.linewidth = 2;
+    gCtx.strokeRect(x, y, textWidth + 15, -boundingHeight - 10);
+}
 
 
 /// SELECTED LINE IDX  /////
