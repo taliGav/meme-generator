@@ -21,8 +21,9 @@ function getSaved() {
 
 function renderMeme() {
     // renders an image on the canvas and a line of text on top
-    var meme = getMeme();
+     var meme = getMeme();
     drawMeme(meme.selectedImgId);
+    
 }
 
 function onSetFont(font) {
@@ -31,13 +32,13 @@ function onSetFont(font) {
 }
 
 function setStrokeColor(elInputColor) {
-    const meme = getMeme();
+    let meme = getMeme();
     meme.lines[meme.selectedLineIdx].strokeColor = elInputColor.value;
     renderMeme();
 }
 
 function setFillColor(elInputColor) {
-    const meme = getMeme();
+    let meme = getMeme();
     meme.lines[meme.selectedLineIdx].fillColor = elInputColor.value;
     renderMeme();
 }
@@ -57,10 +58,10 @@ function onUpdateFontSize(val) {
 }
 
 function onSwitchLines() {
-    console.log('switch lines func activated');
+    // console.log('switch lines func activated');
     setSelectedLineIdx();
     setSelectedLine();
-    console.log('meme line[meme.selectedLineIdx]', gMeme.lines[gMeme.selectedLineIdx].txt, 'meme.lines[currLineIdx].size', gMeme.lines[gMeme.selectedLineIdx].size);
+    // console.log('meme line[meme.selectedLineIdx]', gMeme.lines[gMeme.selectedLineIdx].txt, 'meme.lines[currLineIdx].size', gMeme.lines[gMeme.selectedLineIdx].size);
     renderToEls();
     renderMeme();
 }
