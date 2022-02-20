@@ -5,11 +5,11 @@ var gSelectedLine;
 
 var gMeme = {
     selectedImgId: 1,
-    selectedLineIdx: 0,
+    selectedLineIdx: 1,
     lines: [
         {
             txt: 'example1',
-            size: 30,
+            size: 25,
             pos: { x: 20, y: 50 },
             align: 'left',
             font: 'Impact',
@@ -63,11 +63,10 @@ function setImg(id) {
 function drawMeme(id) {
     var img = new Image();
     const imgs = getImgs();
-    img.src = imgs[id - 1].url;
+    img.src = imgs[+id - 1].url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
         _drawTextLines();
-        _focusOnSelectedLine();
     };
 }
 
@@ -77,6 +76,7 @@ function drawMemeForSave() {
     img.src = imgs[gMeme.selectedImgId - 1].url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
+        gMeme.selectedLineIdx =null;
         _drawTextLines();
         const imgDataUrl = gCanvas.toDataURL("image/jpeg");
         gSavedMemes.push(imgDataUrl);
@@ -89,48 +89,41 @@ function _drawTextLines() {
     gMeme.lines.forEach(line => _drawTextLine(gMeme.lines.indexOf(line)));
 }
 
-function _drawTextLine(currLine) {
-    const text = gMeme.lines[currLine].txt;
-    const x = gMeme.lines[currLine].pos.x;
-    const y = gMeme.lines[currLine].pos.y;
+function _drawTextLine(lineIdx) {
+    let text = gMeme.lines[lineIdx].txt;
+    let x = gMeme.lines[lineIdx].pos.x;
+    let y = gMeme.lines[lineIdx].pos.y;
 
     gCtx.lineWidth = 2;
-    gCtx.strokeStyle = gMeme.lines[currLine].strokeColor;
-    gCtx.fillStyle = gMeme.lines[currLine].fillColor;
-    gCtx.font = `${gMeme.lines[currLine].size}px ${gMeme.lines[currLine].font}`;
+    gCtx.strokeStyle = gMeme.lines[lineIdx].strokeColor;
+    gCtx.fillStyle = gMeme.lines[lineIdx].fillColor;
+    gCtx.font = `${gMeme.lines[lineIdx].size}px ${gMeme.lines[lineIdx].font}`;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
+    if (lineIdx === gMeme.selectedLineIdx) _focusOnSelectedLine();
 }
 
 function _focusOnSelectedLine() {
-    const currSelectedLine = gMeme.lines[gMeme.selectedLineIdx];
-    console.log('idx', gMeme.selectedLineIdx, 'currSelectedLine',currSelectedLine );
-    const { txt } = currSelectedLine;
-    console.log('txt',txt);
-
-    var textWidth = gCtx.measureText(txt).width;
-    var boundingHeight = gCtx.measureText(txt).fontBoundingBoxAscent;
-    var x = currSelectedLine.pos.x - 5;
-    var y = currSelectedLine.pos.y + 5;
-
-    console.log(gCtx.measureText(txt));
-    console.log('textWidth', textWidth);
-    console.log('boundingHeight', boundingHeight);
-    console.log('x', x);
-    console.log('y', y);
-
-    gCtx.strokeStyle = 'white';
+    var currSelectedLine = gMeme.lines[gMeme.selectedLineIdx];
+    var { txt, size } = currSelectedLine;
+ 
+    var x = currSelectedLine.pos.x - 10;
+    var y = currSelectedLine.pos.y + 10;
+    
+    let textWidth = gCtx.measureText(txt).width;
+    
+    gCtx.strokeStyle = 'yellow';
     gCtx.linewidth = 2;
-    gCtx.strokeRect(x, y, textWidth + 15, -boundingHeight - 10);
+    gCtx.strokeRect(x, y, textWidth + 20, -(size + 10));
 }
 
 
 /// SELECTED LINE IDX  /////
 
 function setSelectedLineIdx() {
-    const currLineIdx = gMeme.selectedLineIdx;
+    let currLineIdx = gMeme.selectedLineIdx;
     // console.log('currLine',currLine);
-    var newLineIdx = currLineIdx + 1;
+    let newLineIdx = currLineIdx + 1;
     // console.log('newLine',newLine);
 
     if (newLineIdx > gMeme.lines.length - 1) newLineIdx = 0;
@@ -157,7 +150,7 @@ function addNewLine() {
     var emptyLine = {
         txt: '',
         size: 25,
-        pos: { x: 20, y: length* 50 },
+        pos: { x: 20, y: length * 50 },
         align: 'left',
         font: 'Impact',
         strokeColor: 'black',
@@ -191,7 +184,7 @@ function _updateSelectFont() {
     document.querySelector('.form-select').value = gMeme.lines[gMeme.selectedLineIdx].font;
 }
 
-function renderToEls(){
+function renderToEls() {
     _updateInputText();
     _updateSelectFont();
 }
@@ -200,70 +193,43 @@ function renderToEls(){
 /// SET FONT and FONT SIZE ////
 
 function setFont(font) {
-    const currLineIdx = gMeme.selectedLineIdx;
-    switch (font) {
-        case 'Impact':
-            gMeme.lines[currLineIdx].font = 'Impact';
-            renderMeme();
-            break;
-        case 'lobster':
-            gMeme.lines[currLineIdx].font = 'lobster';
-            renderMeme();
-            break;
-        case 'titan':
-            gMeme.lines[currLineIdx].font = 'titan';
-            renderMeme();
-            break;
-        case 'luckiest-guy':
-            gMeme.lines[currLineIdx].font = 'luckiest-guy';
-            renderMeme();
-            break;
-        case 'alfa':
-            gMeme.lines[currLineIdx].font = 'alfa';
-            renderMeme();
-            break;
-        case 'bowlby':
-            gMeme.lines[currLineIdx].font = 'bowlby';
-            renderMeme();
-            break;
-        case 'suez-heb':
-            gMeme.lines[currLineIdx].font = 'suez-heb';
-            renderMeme();
-            break;
-    }
+    let currLineIdx = gMeme.selectedLineIdx;
+    gMeme.lines[currLineIdx].font = font;
+    // renderMeme();
 }
 
 function setFontSize(val) {
-    const currLineIdx = gMeme.selectedLineIdx;
+    let currLineIdx = gMeme.selectedLineIdx;
     var currFontSize = gMeme.lines[currLineIdx].size;
-
-    switch (val) {
-        case '+':
-            gMeme.lines[currLineIdx].size = currFontSize + 1;
-            // renderMeme();
-            break;
-        case '-':
-            gMeme.lines[currLineIdx].size = currFontSize - 1;
-            // renderMeme();
-            break;
-    }
-    console.log('gMeme.lines[currLineIdx].size', gMeme.lines[currLineIdx].size);
+    // console.log('currFontSize', currFontSize);
+    gMeme.lines[currLineIdx].size = val === '+' ? currFontSize + 1 : currFontSize - 1;
+    // switch (val) {
+    //     case '+':
+    //         gMeme.lines[currLineIdx].size = currFontSize + 1;
+    //         // renderMeme();
+    //         break;
+    //     case '-':
+    //         gMeme.lines[currLineIdx].size = currFontSize - 1;
+    //         // renderMeme();
+    //         break;
+    // }
+    // console.log('gMeme.lines[currLineIdx].size', gMeme.lines[currLineIdx].size);
 }
 
 ///  INHERIT FUNC USED ON SHARE MEME TO FB  /////
 
 function doUploadImg(imgDataUrl, onSuccess) {
-    
+
     const formData = new FormData();
     console.log('formData', formData);
     formData.append('img', imgDataUrl);
-    
+
     fetch('//ca-upload.com/here/upload.php', {
         method: 'POST',
         body: formData
     })
-    .then(res => res.text())
-    .then((url) => {
+        .then(res => res.text())
+        .then((url) => {
             console.log('Got back live url:', url);
             onSuccess(url);
         })
@@ -304,7 +270,7 @@ function onDown(ev) {
     if (!isSelectedLineClicked(pos)) return;
     setSelectedLineDrag(true);
     gStartPos = pos;
-    console.log('gStartPos',gStartPos);
+    console.log('gStartPos', gStartPos);
     document.body.style.cursor = 'grabbing';
 }
 
@@ -332,7 +298,7 @@ function getEvPos(ev) {
         x: ev.offsetX,
         y: ev.offsetY
     };
-    console.log('pos click',pos);
+    console.log('pos click', pos);
     if (gTouchEvs.includes(ev.type)) {
         ev.preventDefault();
         ev = ev.changedTouches[0];
@@ -345,6 +311,7 @@ function getEvPos(ev) {
 }
 
 function setSelectedLine() {
+    console.log('selectedLineIdx', gMeme.selectedLineIdx);
     gSelectedLine = gMeme.lines[gMeme.selectedLineIdx];
 }
 
@@ -353,15 +320,14 @@ function getSelectedLine() {
 }
 
 function isSelectedLineClicked(clickedPos) {
-    const { pos } = gSelectedLine;
-    const { txt } = gSelectedLine;
+    let { pos, txt } = gSelectedLine;
     var textMeasure = gCtx.measureText(txt);
     var boundingHeight = gCtx.measureText(txt).fontBoundingBoxAscent;
     var textWidth = gCtx.measureText(txt).width;
 
     const distance = Math.sqrt((pos.x + textWidth - clickedPos.x) ** 2 + (pos.y + boundingHeight - clickedPos.y) ** 2);
-    const maxDistance = Math.sqrt(textWidth**2 + boundingHeight**2)
-    return distance <= maxDistance/2;
+    const maxDistance = Math.sqrt(textWidth ** 2 + boundingHeight ** 2);
+    return distance <= maxDistance / 2;
 }
 
 function setSelectedLineDrag(isDragged) {
@@ -378,3 +344,32 @@ function moveSelectedLine(dx, dy) {
 //     gCanvas.width = elContainer.offsetWidth
 //     gCanvas.height = elContainer.offsetHeight
 // }
+
+
+
+
+
+
+// if line clicked
+
+function lineClicked(ev) {
+
+    var textWidth = gCtx.measureText(txt).width;
+    var boundingHeight = gCtx.measureText(txt).fontBoundingBoxAscent;
+    var x = currSelectedLine.pos.x - 10;
+    var y = currSelectedLine.pos.y + 10;
+
+
+    const clickedLine = gMeme.lines.find(line =>
+        ev.offsetX >= line.pos.x && ev.offsetX <= line.x + textWidth &&
+        ev.offsetY >= line.pos.y && ev.offsetY <= line.y + line.size
+    )
+    console.log(clickedLine);
+    // TODO: find out if clicked a star bar
+    // ev.offsetX >= star.x && ev.offsetX <= star.x + gBarWidth &&
+    // ev.offsetY >= star.y && ev.offsetY <= star.y + star.rate
+
+
+    if (clickedLine) openModal(clickedStar.name, clickedStar.rate, ev.clientX, ev.clientY)
+    else closeModal()
+}
