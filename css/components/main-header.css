@@ -7,6 +7,7 @@ font-family: lobster;
 .logo {
     font-size: 2em;
     text-shadow: 4px 4px rgb(235, 222, 175);
+    margin-inline-start: 12px;
 }
 
 .main-nav{
@@ -14,5 +15,5 @@ color: #A68DAD;
 }
 
 .btn-menu {
-    margin-inline-end: 20px;
+    margin-inline-end: 10px;
 }
