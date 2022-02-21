@@ -14,8 +14,10 @@
     font-size: .8em;
 }
 
-.editor-container .grid {
+.editor-container.grid {
     justify-items: center;
+    margin: 0 110px;
+    font-size: 1.25rem;
 }
 
 .editor-section .btn {

@@ -2,9 +2,8 @@
 
 console.log('meme editor controller');
 
-var gCanvas;
-var gCtx;
 var gStartPos;
+var gEl;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 };
 
@@ -20,6 +19,7 @@ function getSaved() {
 }
 
 function renderMeme() {
+    console.log('hi');
     // renders an image on the canvas and a line of text on top
      var meme = getMeme();
     drawMeme(meme.selectedImgId);
@@ -97,10 +97,16 @@ function onShareOnFb() {
 }
 
 function onSaveMeme() {
-    drawMemeForSave();
+    setSelectedToNull();
+    drawMemeForSave('save');
+    renderMeme();
 }
 
-function onDownloadMeme(elLink) {
+function onDownloadMeme(el) {
+    setSelectedToNull();
+    drawMemeForSave('down');
+    // gEl = el
     const data = gCanvas.toDataURL('image/jpeg');
-    elLink.href = data;
+    el.href = data;
+    renderMeme();
 }
