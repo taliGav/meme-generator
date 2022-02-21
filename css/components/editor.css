@@ -9,14 +9,14 @@
 }
 
 .editor-container {
-    padding: 15px;
+    padding-top: 15px;
     font-family: 'alfa';
     font-size: .8em;
 }
 
 .editor-container.grid {
     justify-items: center;
-    margin: 0 110px;
+    /* margin: 0 110px; */
     font-size: 1.25rem;
 }
 
@@ -24,3 +24,8 @@
     justify-self: center;
     max-width: 380px;
 }
+
+.editor-container.command-panel {
+    padding: 15px;
+}
+
